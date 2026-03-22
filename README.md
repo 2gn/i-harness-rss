@@ -1,6 +1,6 @@
-# i-harness-rss
+# rss-crawler
 
-RSS feed generator for [i-harness.com](https://i-harness.com).
+Rule based RSS feed generator that scrapes websites automatically using GitHub Actions. 
 
-I am not affiliated to i-harness.com. 
+I am not affiliated to any websites that are on the list.
 
