@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -164,10 +165,16 @@ func main() {
 	}
 
 	var activeNames []string
+	var wg sync.WaitGroup
 	for _, target := range cfg.Targets {
-		ProcessTarget(target, outputDir)
 		activeNames = append(activeNames, target.Name)
+		wg.Add(1)
+		go func(t Target) {
+			defer wg.Done()
+			ProcessTarget(t, outputDir)
+		}(target)
 	}
+	wg.Wait()
 
 	cleanup(outputDir, activeNames)
 }
