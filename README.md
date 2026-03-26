@@ -24,3 +24,7 @@ Generate only Hacker News feeds:
 ```bash
 just run-hn
 ```
+
+## Available Feeds
+
+Check the list of all available feeds in [feeds_list.md](feeds_list.md).
